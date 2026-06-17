@@ -1,0 +1,23 @@
+{
+  "name": "ciceran---atienza",
+  "version": "1.0.0",
+  "description": "tp de node 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js",
+    "pio": "nodemon --env-file=.pio.env index.js",
+    "home": "nodemon --env-file=.home.env index.js"
+  },
+  "keywords": [
+    "ES"
+  ],
+  "author": "delfina y guadalupe",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.20.0",
+    "nodemon": "^3.1.14"
+  }
+}
