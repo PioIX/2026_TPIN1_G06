@@ -2,7 +2,7 @@
 let idUserLogin = null;
 
 // ==========================================
-// FUNCIÓN PARA EL INICIO DE SESIÓN (LOGIN)
+// FUNCIÓN PARA EL INICIO DE SESIÓN (L((((OGIN)
 // ==========================================
 async function ejecutarLogin() {
     // Tomamos los valores usando los IDs reales de tu login.html
