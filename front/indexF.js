@@ -116,3 +116,163 @@ const botonRegistrarse = document.querySelector("#botonRegistrarse");
 if (botonRegistrarse) {
     botonRegistrarse.addEventListener("click", ejecutarRegistro);
 }
+
+
+
+
+//Pedidos:
+async function llamadoAlGet() {
+    //El get no manda body, si quiero mandar parametros lo sumo a la url con el ?
+    const response = await fetch('http://localhost:4000/emojies',{
+        method:"GET", //GET, POST, PUT oz DELETE
+        headers: {
+        "Content-Type": "application/json",
+        },
+    })
+
+    console.log(response)
+    //Desarma el json y lo arma como un objeto
+    let result = await response.json()
+    console.log(result)
+}
+
+async function llamadoAlGetP() {
+    //El get no manda body, si quiero mandar parametros lo sumo a la url con el ?
+    const response = await fetch('http://localhost:4000/peliculas',{
+        method:"GET", //GET, POST, PUT oz DELETE
+        headers: {
+        "Content-Type": "application/json",
+        },
+    })
+
+    console.log(response)
+    //Desarma el json y lo arma como un objeto
+    let result = await response.json()
+    console.log(result)
+}
+
+//Los datos en el post se mandan dentro de un objeto 
+async function envioPost(datos) {
+    const response = await fetch('http://localhost:4000/emojies',{
+        method:"POST", //GET, POST, PUT o DELETE
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos) //JSON.stringify convierte de objeto a JSON
+    })
+
+    console.log(response)
+    //Desarma el json y lo arma como un objeto
+    let result = await response.json()
+    console.log(result)
+}
+
+function tomarDatos() {
+    let datos = {
+        nombre: ingresoNombre(),
+        tipo: ingresoTipo(),
+    }
+    envioPost(datos)
+}
+
+async function envioPostP(datosP) {
+    const response = await fetch('http://localhost:4000/peliculas',{
+        method:"POST", //GET, POST, PUT o DELETE
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosP) //JSON.stringify convierte de objeto a JSON
+    })
+
+    console.log(response)
+    //Desarma el json y lo arma como un objeto
+    let result = await response.json()
+    console.log(result)
+}
+
+
+function tomarDatosP() {
+    let datosP = {
+        duracion: ingresoDuracion(),
+        fecha_estreno: ingresoFecha(),
+        genero: ingresoGenero(),
+        es_saga: ingresoSaga(),
+        es_animado: ingresoAnimado(),
+        titulo: ingresoTitulo(),
+    }
+    envioPostP(datosP)
+}
+
+const selector = document.getElementById('selector-datos');
+async function cargarSelect() {
+try {
+        let result = await fetch('http://localhost:4000/emojies ') 
+        let resultado = await result.json()
+        selector.innerHTML = '<option value="">Seleccione un emojie...</option>';
+        for (let i = 0; i < resultado.length; i++) {
+            const element = resultado[i];
+                selector.innerHTML += `<option value="${element.id}">${element.tipo}</option>`;
+            
+            };
+    } catch (error) {
+    console.log("Error al cargar los datos:", error);
+}} 
+cargarSelect();
+
+async function cambiarDato() {
+    let datos = {
+        tipoP: document.getElementById("ingresoTipoPUT").value,  
+        nombreP: document.getElementById("ingresoNombrePUT").value,
+        id:document.getElementById("selector-datos").value,
+
+    }
+try {
+        console.log("Recibi : ",datos)
+        const response = await fetch('http://localhost:4000/emojies',{
+        method:"PUT", //GET, POST, PUT o DELETE
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos) 
+        })
+    
+        console.log(response)
+        let result = await response.json()
+        console.log(result)
+} catch (error) {
+    console.log("Error de red o conexión:", error);
+}
+    
+}
+const selectorB = document.getElementById('selector-datos-eliminar')
+async function cargarSelectB() {
+try {
+        let result = await fetch('http://localhost:4000/emojies ') 
+        let resultado = await result.json()
+        selectorB.innerHTML = '<option value="">Seleccione un emojie...</option>';
+        for (let i = 0; i < resultado.length; i++) {
+            const element = resultado[i];
+                selectorB.innerHTML += `<option value="${element.id}">${element.tipo}</option>`;
+            
+            };
+    } catch (error) {
+    console.log("Error al cargar los datos:", error);
+}} 
+cargarSelectB();
+
+async function borrarDatos() {
+    let datos = {
+        id:document.getElementById("selector-datos-eliminar").value,
+    }
+        const response = await fetch('http://localhost:4000/emojies',{
+        method:"DELETE", //GET, POST, PUT o DELETE
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos) 
+    })
+
+    console.log(response)
+    let result = await response.json()
+    console.log(result)
+}

@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP web</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1 id="BaseDatos"> Baso de Datos </h1>
+    <button onclick="llamadoAlGet()">Llamado Al Backend</button>
+    <button onclick="llamadoAlGetP()">Llamado Al Backend</button>
+
+    <h2>Agregar un EMOJIE nuevo</h2>
+    <input id="ingresoNombre" placeholder="Ingrese el nombre del emojie">
+    <input id="ingresoTipo" placeholder="Ingrese el emojie">
+    <button onclick="tomarDatos()">Enviar al POST</button>
+
+    <h2>Agregar una PELICULA nuevo</h2>
+    <input id="ingresoDuracion" placeholder="Ingrese la duracion">
+    <input id="ingresoFecha" placeholder="Ingrese la fecha de estreno">
+    <input id="ingresoGenero" placeholder="Ingrese el genero">
+    <input id="ingresoSaga" placeholder="Ingrese si es una saga">
+    <input id="ingresoAnimado" placeholder="Ingrese si es animado">
+    <input id="ingresoTitulo" placeholder="Ingrese el titulo de la pelicula">
+    <button onclick="tomarDatosP()">Enviar al POST</button>
+
+
+    <h2>EDITAR DATOS</h2>
+    <label for="selector-datos">Selecciona un elemento:</label>
+    <select id="selector-datos">
+        <option value="">Seleccione Dato</option>
+    </select>
+    <input type="text" id="ingresoTipoPUT" placeholder="Escribe EMOJIE ha cambiar...">
+    <input type="text" id="ingresoNombrePUT" placeholder="Escribe NOMBRE ha cambiar...">
+    <button onclick="cambiarDato()">Cambiar en la base de datos</button>
+
+
+    <h2>Eliminar Registro</h2>
+    <label for="selector-datos-eliminar">Selecciona un elemento:</label>
+    <select id="selector-datos-eliminar">
+        <option value="">Seleccione Dato</option>
+    </select>
+    <button onclick="borrarDatos()">Eliminar de la base de datos</button>
+
+    <!-- Aca ponemos los scripts de JS -->
+    <script src="dom.js"></script>
+    <script src="indexF.js"> </script>
+</body>
+
+</html>
