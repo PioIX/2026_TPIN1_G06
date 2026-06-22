@@ -128,3 +128,99 @@ app.delete('/peliculas', function(req, res){
 } )
 
 
+/*
+app.post("/registro", function(req, res){
+    
+    console.log(req.body)
+    let respuesta = {
+        ok: false,
+        msg: "No se pudo registrar"
+    }
+    //1 - Ver si no existe ya el user
+    //2 - Si ya existe se lo digo
+    //3 - Si no existe lo registro
+    /*
+    realizarQuery(`
+    DELETE FROM Peliculas WHERE id = "${req.body.id}"
+    `)
+    
+    //4 - Le devuelvo lo que sea que pasó
+    res.send(respuesta)
+} )
+*/ 
+
+app.post("/registro", async function(req, res) { // <-- Agregado 'async'
+    console.log(req.body);
+
+    // Creamos el objeto de respuesta por defecto (falla por defecto)
+    let respuesta = {
+        ok: false,
+        msg: "No se pudo registrar"
+    };
+
+    try {
+        // 1 - Ver si ya existe el usuario (Buscamos solo por el nombre de usuario o mail)
+        let existe = await realizarQuery(`
+            SELECT * FROM Usuarios WHERE user = '${req.body.user}' OR mail = '${req.body.mail}'
+        `);
+
+        // 2 - Si ya existe, se lo digo modificando el objeto respuesta
+        if (existe.length > 0) {
+            respuesta.msg = "El nombre de usuario o el email ya están en uso.";
+            return res.send(respuesta); 
+        }
+
+        // 3 - Si no existe lo registro
+        await realizarQuery(`
+            INSERT INTO Usuarios (id, user, contra, mail, es_admin) VALUES
+            ('${req.body.id}', '${req.body.user}', '${req.body.contra}', '${req.body.mail}', '${req.body.es_admin}');
+        `);
+
+        // Si llegó hasta acá, todo salió bien, modificamos la respuesta a éxito
+        respuesta.ok = true;
+        respuesta.msg = "Usuario registrado con éxito";
+        
+        // 4 - Le devuelvo lo que sea que pasó
+        res.send(respuesta);
+
+    } catch (error) {
+        console.error("Error en base de datos:", error);
+        respuesta.msg = "Error interno al intentar registrar.";
+        res.status(500).send(respuesta);
+    }
+});
+
+/* En tu archivo de servidor (ej: server.js)
+
+app.post('/registro', async (req, res) => {
+    // Recibimos los datos del fetch (req.body)
+    const { dni, nombre, user, contra } = req.body;
+
+    // 1. Validación básica en el servidor
+    if (!dni || !nombre || !user || !contra) {
+        return res.status(400).json({ ok: false, mensaje: "Faltan campos obligatorios" });
+    }
+
+    try {
+        // 2. AQUÍ CONECTAS CON TU BD (Ejemplo conceptual con SQL)
+        // Primero, verificar si el DNI o Usuario ya existen:
+        const usuarioExiste = await baseDeDatos.query("SELECT * FROM usuarios WHERE dni = ? OR user = ?", [dni, user]);
+        
+        if (usuarioExiste.length > 0) {
+            return res.json({ ok: false, mensaje: "El DNI o el Usuario ya están registrados." });
+        }
+
+        // 3. Insertar el nuevo usuario (Idealmente la contraseña debería encriptarse antes)
+        await baseDeDatos.query(
+            "INSERT INTO usuarios (dni, nombre, user, contra) VALUES (?, ?, ?, ?)", 
+            [dni, nombre, user, contra]
+        );
+
+        // 4. Responderle al frontend con un "ok: true" para que haga la redirección
+        res.json({ ok: true, mensaje: "Usuario registrado con éxito" });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ ok: false, mensaje: "Error interno del servidor al guardar." });
+    }
+});*/
