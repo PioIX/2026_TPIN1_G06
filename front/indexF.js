@@ -1,15 +1,14 @@
 // Variable global que ya tenías para saber si hay usuario logueado
 let idUserLogin = null;
 
-// ==========================================
-// FUNCIÓN PARA EL INICIO DE SESIÓN (LOGIN)
-// ==========================================
+
+//Login
 async function ejecutarLogin() {
     // Tomamos los valores usando los IDs reales de tu login.html
     const user = document.querySelector("#user").value;
     const contra = document.querySelector("#contra").value;
 
-    // Validación básica por si dejan campos vacíos
+    // Validación por si dejan campos vacíos
     if (user === "" || contra === "") {
         alert("Por favor, completa todos los campos.");
         return;
@@ -34,11 +33,10 @@ async function ejecutarLogin() {
             localStorage.setItem("usuario", JSON.stringify(datos.usuario));
             
             alert("¡Bienvenido!");
-            // Redirigimos al menú principal como tenías pensado
+            // Redirigimos al menú principal
             window.location.href = "menu.html";
         } else {
-            // Si las credenciales no existen o fallan, la consigna pide avisar
-            // y ofrecer registrarse (el botón de ir a registro ya está en tu HTML)
+            // Si los datos no existen o fallan, avisa
             alert(datos.mensaje || "Los datos son incorrectos. Intenta reingresar o regístrate si no tienes cuenta.");
         }
 
@@ -49,11 +47,9 @@ async function ejecutarLogin() {
 }
 
 
-// ==========================================
-// FUNCIÓN PARA EL REGISTRO DE NUEVOS USUARIOS
-// ==========================================
+//REGISTRO DE NUEVOS USUARIOS
 async function ejecutarRegistro() { 
-    // Corregimos los IDs para que coincidan EXACTAMENTE con tu registro.html
+   
     const nombre = document.querySelector("#name").value; 
     const user = document.querySelector("#user").value; 
     const contra = document.querySelector("#contra").value; 
@@ -91,9 +87,8 @@ async function ejecutarRegistro() {
     }
 }
 
-// ==========================================
-// ASIGNACIÓN DE EVENTOS A LOS BOTONES
-// ==========================================
+
+// BOTONES
 // Usamos condicionales 'if' porque este mismo JS se comparte en ambas páginas.
 // Si el botón existe en la página actual, le asignamos su función.
 
