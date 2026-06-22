@@ -12,7 +12,6 @@ async function ejecutarLogin() {
 
     try {
         // Hacemos el fetch a tu servidor local
-        const respuesta = await fetch("http://localhost:4000/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

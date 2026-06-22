@@ -14,7 +14,7 @@ async function ejecutarRegistro() {
 
     try {
         // Enviamos los datos solicitados por la consigna (id/dni, nombre completo, usuario, contraseña)
-        const respuesta = await fetch("http://localhost:4000/registro", {
+        const respuesta = await fetch("http://localhost:5500/front/registro.html", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
