@@ -45,4 +45,33 @@ function ingresoTitulo() {
 }
 
 
+function ingresoDuracionP() {
+    return document.getElementById("ingresoDuracionP").value
+}
+
+
+function ingresoFechaP() {
+    return document.getElementById("ingresoFechaP").value
+}
+
+
+function ingresoGeneroP() {
+    return document.getElementById("ingresoGeneroP").value
+}
+
+
+function ingresoSagaP() {
+    return document.getElementById("ingresoSagaP").value
+}
+
+
+function ingresoAnimadoP() {
+    return document.getElementById("ingresoAnimadoP").value
+}
+
+
+function ingresoTituloP() {
+    return document.getElementById("ingresoTituloP").value
+}
+
 

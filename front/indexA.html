@@ -29,7 +29,7 @@
     <button onclick="tomarDatosP()">Enviar al POST</button>
 
 
-    <h2>EDITAR DATOS</h2>
+    <h2>EDITAR DATOS EMOJIE</h2>
     <label for="selector-datos">Selecciona un elemento:</label>
     <select id="selector-datos">
         <option value="">Seleccione Dato</option>
@@ -38,13 +38,32 @@
     <input type="text" id="ingresoNombrePUT" placeholder="Escribe NOMBRE ha cambiar...">
     <button onclick="cambiarDato()">Cambiar en la base de datos</button>
 
+    <h2>EDITAR DATOS PELICULAS</h2>
+    <label for="selector-datosP">Selecciona un elemento:</label>
+    <select id="selector-datosP">
+        <option value="">Seleccione Dato</option>
+    </select>
+    <input type="text" id="ingresoTituloP" placeholder="Escribe TITULO ha cambiar...">
+    <input type="text" id="ingresoDuracionP" placeholder="Escribe DURACION ha cambiar...">
+    <input type="text" id="ingresoFechaP" placeholder="Escribe FECHA ha cambiar...">
+    <input type="text" id="ingresoGeneroP" placeholder="Escribe GENERO ha cambiar...">
+    <input type="text" id="ingresoSagaP" placeholder="Escribe SAGA ha cambiar...">
+    <input type="text" id="ingresoAnimadoP" placeholder="Escribe ANIMADO ha cambiar...">
+    <button onclick="cambiarDatoP()">Cambiar en la base de datos</button>
 
-    <h2>Eliminar Registro</h2>
+    <h2>Eliminar Registro EMOJIE</h2>
     <label for="selector-datos-eliminar">Selecciona un elemento:</label>
     <select id="selector-datos-eliminar">
         <option value="">Seleccione Dato</option>
     </select>
     <button onclick="borrarDatos()">Eliminar de la base de datos</button>
+
+    <h2>Eliminar Registro PELICULA</h2>
+    <label for="selector-datos-eliminarP">Selecciona un elemento:</label>
+    <select id="selector-datos-eliminarP">
+        <option value="">Seleccione Dato</option>
+    </select>
+    <button onclick="borrarDatosP()">Eliminar de la base de datos</button>
 
     <!-- Aca ponemos los scripts de JS -->
     <script src="dom.js"></script>
