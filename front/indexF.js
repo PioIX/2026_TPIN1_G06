@@ -118,8 +118,6 @@ if (botonRegistrarse) {
 }
 
 
-
-
 //Pedidos:
 async function llamadoAlGet() {
     //El get no manda body, si quiero mandar parametros lo sumo a la url con el ?
@@ -244,6 +242,55 @@ try {
 }
     
 }
+
+
+const selectorP = document.getElementById('selector-datosP');
+async function cargarSelectP() {
+try {
+        let result = await fetch('http://localhost:4000/peliculas ') 
+        let resultado = await result.json()
+        selectorP.innerHTML = '<option value="">Seleccione una pelicula...</option>';
+        for (let i = 0; i < resultado.length; i++) {
+            const element = resultado[i];
+                selectorP.innerHTML += `<option value="${element.id}">${element.titulo}</option>`;
+            
+            };
+    } catch (error) {
+    console.log("Error al cargar los datos:", error);
+}} 
+cargarSelectP();
+
+async function cambiarDatoP() {
+    let datosPP = {
+        duracion: document.getElementById("ingresoDuracionP").value,
+        fecha: document.getElementById("ingresoFechaP").value,
+        genero: document.getElementById("ingresoGeneroP").value,
+        saga: document.getElementById("ingresoSagaP").value,
+        animado: document.getElementById("ingresoAnimadoP").value,
+        titulo: document.getElementById("ingresoTituloP").value,
+        id:document.getElementById("selector-datosP").value,
+
+    }
+try {
+        console.log("Recibi : ",datosPP)
+        const response = await fetch('http://localhost:4000/peliculas',{
+        method:"PUT", //GET, POST, PUT o DELETE
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosPP) 
+        })
+    
+        console.log(response)
+        let result = await response.json()
+        console.log(result)
+} catch (error) {
+    console.log("Error de red o conexión:", error);
+}
+    
+}
+
+
 const selectorB = document.getElementById('selector-datos-eliminar')
 async function cargarSelectB() {
 try {
@@ -270,6 +317,39 @@ async function borrarDatos() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(datos) 
+    })
+
+    console.log(response)
+    let result = await response.json()
+    console.log(result)
+}
+
+const selectorBP = document.getElementById('selector-datos-eliminarP')
+async function cargarSelectBP() {
+try {
+        let result = await fetch('http://localhost:4000/peliculas ') 
+        let resultado = await result.json()
+        selectorBP.innerHTML = '<option value="">Seleccione una pelicula...</option>';
+        for (let i = 0; i < resultado.length; i++) {
+            const element = resultado[i];
+                selectorBP.innerHTML += `<option value="${element.id}">${element.titulo}</option>`;
+            
+            };
+    } catch (error) {
+    console.log("Error al cargar los datos:", error);
+}} 
+cargarSelectBP();
+
+async function borrarDatosP() {
+    let datosBP = {
+        id:document.getElementById("selector-datos-eliminarP").value,
+    }
+        const response = await fetch('http://localhost:4000/peliculas',{
+        method:"DELETE", //GET, POST, PUT o DELETE
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosBP) 
     })
 
     console.log(response)

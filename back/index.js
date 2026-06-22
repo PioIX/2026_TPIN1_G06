@@ -99,6 +99,15 @@ app.put('/emojies', async function(req, res){
 
 })
 
+app.put('/peliculas', async function(req, res){
+    console.log("req.body del put :",req.body)
+    const respuesta = await realizarQuery(`
+        UPDATE Peliculas SET duracion = "${req.body.duracion}", fecha_estreno = "${req.body.fecha}",genero = "${req.body.genero}", es_saga = ${req.body.saga}, es_animado = ${req.body.animado}, titulo = "${req.body.titulo}"
+        WHERE id=${req.body.id}
+     `)
+    res.send({ message: "Pelicula modificado" })
+
+})
 
 app.delete('/emojies', function(req, res){
     console.log(req.body)
@@ -109,5 +118,13 @@ app.delete('/emojies', function(req, res){
 
 } )
 
+app.delete('/peliculas', function(req, res){
+    console.log(req.body)
+    realizarQuery(`
+        DELETE FROM Peliculas WHERE id = "${req.body.id}"
+     `)
+    res.send({message:"Pelicula eliminado"})
+
+} )
 
 
