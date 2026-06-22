@@ -12,6 +12,7 @@ async function ejecutarLogin() {
 
     try {
         // Hacemos el fetch a tu servidor local
+        const respuesta = await fetch("http://localhost:5500/front/login.html", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
