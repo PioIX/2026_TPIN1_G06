@@ -127,28 +127,6 @@ app.delete('/peliculas', function(req, res){
 
 } )
 
-
-/*
-app.post("/registro", function(req, res){
-    
-    console.log(req.body)
-    let respuesta = {
-        ok: false,
-        msg: "No se pudo registrar"
-    }
-    //1 - Ver si no existe ya el user
-    //2 - Si ya existe se lo digo
-    //3 - Si no existe lo registro
-    /*
-    realizarQuery(`
-    DELETE FROM Peliculas WHERE id = "${req.body.id}"
-    `)
-    
-    //4 - Le devuelvo lo que sea que pasó
-    res.send(respuesta)
-} )
-*/ 
-
 app.post("/registro", async function(req, res) { // <-- Agregado 'async'
     console.log(req.body);
 
@@ -190,37 +168,22 @@ app.post("/registro", async function(req, res) { // <-- Agregado 'async'
     }
 });
 
-/* En tu archivo de servidor (ej: server.js)
 
-app.post('/registro', async (req, res) => {
-    // Recibimos los datos del fetch (req.body)
-    const { dni, nombre, user, contra } = req.body;
+app.post('/usuarios', async function(req, res) {
+    console.log(req.body);
+    
+    let respuesta = await realizarQuery(`   
+        SELECT * FROM Usuarios WHERE user = "${req.body.user}" and contra = "${req.body.contra}"
+    `); 
 
-    // 1. Validación básica en el servidor
-    if (!dni || !nombre || !user || !contra) {
-        return res.status(400).json({ ok: false, mensaje: "Faltan campos obligatorios" });
-    }
-
-    try {
-        // 2. AQUÍ CONECTAS CON TU BD (Ejemplo conceptual con SQL)
-        // Primero, verificar si el DNI o Usuario ya existen:
-        const usuarioExiste = await baseDeDatos.query("SELECT * FROM usuarios WHERE dni = ? OR user = ?", [dni, user]);
-        
-        if (usuarioExiste.length > 0) {
-            return res.json({ ok: false, mensaje: "El DNI o el Usuario ya están registrados." });
+    if (respuesta.length > 0) {
+        if (req.body.user === "guadalupita" && req.body.contra === "missHim32") {
+            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin" });
+        } else {
+            // Si es cualquier otro usuario de la base de datos
+            res.send({ message: "ingreso exitoso NORMAL", tipoUsuario: "comun" });
         }
-
-        // 3. Insertar el nuevo usuario (Idealmente la contraseña debería encriptarse antes)
-        await baseDeDatos.query(
-            "INSERT INTO usuarios (dni, nombre, user, contra) VALUES (?, ?, ?, ?)", 
-            [dni, nombre, user, contra]
-        );
-
-        // 4. Responderle al frontend con un "ok: true" para que haga la redirección
-        res.json({ ok: true, mensaje: "Usuario registrado con éxito" });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ ok: false, mensaje: "Error interno del servidor al guardar." });
+    } else {
+        res.send({ message: "usuario no existe registrate" });
     }
-});*/
+});
