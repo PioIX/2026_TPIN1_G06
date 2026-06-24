@@ -27,7 +27,7 @@ body {
 /* Botones */
 a {
   text-decoration: none;
-  background-color: fuchsia;
+  background-color: rgb(248, 56, 248);
   color: white;
 
   padding: 22px 55px; /* más grandes */
@@ -43,6 +43,6 @@ a {
 
 /* Efecto hover */
 a:hover {
-  background-color: deeppink;
+  background-color: rgb(253, 45, 156);
   transform: scale(1.08);
 }
