@@ -74,4 +74,17 @@ function ingresoTituloP() {
     return document.getElementById("ingresoTituloP").value
 }
 
+function ingresoUser() {
+    return document.getElementById("ingresoUser").value
+}
 
+
+function ingresoContra() {
+    return document.getElementById("ingresoContra").value
+}
+
+const ui = {
+    changeScreen: function(pagina) {
+        window.location.href = pagina;
+    }
+};
