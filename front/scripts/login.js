@@ -16,7 +16,10 @@ async function tomarDatosL() {
     };
     
     let result = await postLogin(datos);
-
+    if (ingresoUser() === "" || ingresoContra() === "") {
+        alert("Complete todos los campos")
+        return;
+    }
     // Evaluamos la respuesta usando tu nueva función del DOM
     if (result.tipoUsuario === "admin") {
             ui.changeScreen("indexA.html");   // HTML exclusivo para el admin
