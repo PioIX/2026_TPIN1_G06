@@ -1,5 +1,5 @@
 {
-  "name": "ciceran---atienza",
+  "name": "Guadalupe, Delfina, Victoria y Candela",
   "version": "1.0.0",
   "description": "tp de node 1",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "keywords": [
     "ES"
   ],
-  "author": "delfina y guadalupe",
+  "author": "Atienza, Ciceran, Jimenez y Langan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^2.2.2",
