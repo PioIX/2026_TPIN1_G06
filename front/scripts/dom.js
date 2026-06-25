@@ -86,5 +86,6 @@ function ingresoContra() {
 const ui = {
     changeScreen: function(pagina) {
         window.location.href = pagina;
-    }
-};
+    }, 
+
+}

@@ -1,21 +1,5 @@
 /* Fondo */
 body {
-    margin: 0;
-    height: 100vh;
-
-    background-image: url("background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 5px;
-    /* menos espacio */
-    font-family: Arial, sans-serif;
   margin: 0;
   height: 100vh;
 
@@ -35,12 +19,6 @@ body {
 
 /* Título */
 h1 {
-    color: white;
-    margin-bottom: 5px;
-
-    font-size: 18px;
-    /* más chico */
-    text-shadow: 2px 2px 5px black;
   color: white;
   margin-bottom: 5px;
 
@@ -50,54 +28,23 @@ h1 {
 
 /* Inputs*/
 input {
-    width: 220px;
-    /* más chico */
-    padding: 10px;
-    /* más chico */
-
-    border: none;
-    border-radius: 8px;
-    outline: none;
-
-    font-size: 13px;
-    /* letras más chicas */
-}
-
-/* Botón registrarse */
-button {
-    background-color: rgb(248, 56, 248);
-    color: white;
-
-    padding: 10px 25px;
-    /* más chico */
-    font-size: 13px;
-    /* letra más chica */
-
-    border: none;
-    border-radius: 10px;
-
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-
-    cursor: pointer;
-    transition: 0.3s;
-  width: 220px;      /* más chico */
-  padding: 10px;     /* más chico */
+  width: 220px; /* más chico */
+  padding: 10px; /* más chico */
 
   border: none;
   border-radius: 8px;
   outline: none;
 
-  font-size: 13px;   /* letras más chicas */
-} 
+  font-size: 13px; /* letras más chicas */
+}
 
 /* Botón registrarse */
 button {
   background-color: rgb(248, 56, 248);
   color: white;
 
-  padding: 10px 25px;  /* más chico */
-  font-size: 13px;     /* letra más chica */
+  padding: 10px 25px; /* más chico */
+  font-size: 13px; /* letra más chica */
 
   border: none;
   border-radius: 10px;
@@ -111,8 +58,6 @@ button {
 
 /* Hover */
 button:hover {
-    background-color: rgb(253, 45, 156);
-    transform: scale(1.05);
   background-color: rgb(253, 45, 156);
   transform: scale(1.05);
 }
