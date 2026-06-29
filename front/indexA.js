@@ -234,4 +234,4 @@ async function borrarDatosP() {
     console.log(response)
     let result = await response.json()
     console.log(result)
-}
+} 

@@ -123,7 +123,7 @@ app.delete('/peliculas', function(req, res){
     realizarQuery(`
         DELETE FROM Peliculas WHERE id = "${req.body.id}"
      `)
-    res.send({message:"Pelicula eliminado"})
+    res.send({message:"Pelicula eliminado"})                                 
 
 } )
 

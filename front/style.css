@@ -1,4 +1,4 @@
-/* Estilo general del contenedor */
+/* Estilo general del contenedor 
 .card-container {
     max-width: 400px;
     margin: 50px auto;
@@ -15,7 +15,7 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* Grupos de formulario */
+/* Grupos de formulario 
 .form-group {
     margin-bottom: 20px;
 }
@@ -28,14 +28,14 @@ label {
     font-size: 14px;
 }
 
-/* Estilo para el Select e Input */
+/* Estilo para el Select e Input 
 select, input[type="text"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
-    box-sizing: border-box; /* Evita que el padding ensanche el input */
+    box-sizing: border-box; /* Evita que el padding ensanche el input 
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -45,7 +45,7 @@ select:focus, input[type="text"]:focus {
     box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
 }
 
-/* El botón */
+/* El botón 
 button {
     width: 100%;
     padding: 14px;
@@ -67,7 +67,7 @@ button:active {
     transform: scale(0.98);
 }
 
-/* Estilo opcional para cuando el select está vacío */
+/* Estilo opcional para cuando el select está vacío 
 select option:first-child {
     color: #999;
 }
@@ -104,15 +104,15 @@ h1 { text-align: center; color: #b15fad; margin-bottom: 10px; }
     margin-bottom: 15px;
 }
 
-/* Grilla para los inputs */
+/* Grilla para los inputs 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* 3 columnas iguales */
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columnas iguales 
     gap: 15px;
     margin-bottom: 20px;
 }
 
-/* Estilo común para inputs y selects */
+/* Estilo común para inputs y selects 
 input, select {
     padding: 12px;
     border: 1px solid #d1d8e0;
@@ -124,7 +124,7 @@ input, select {
 
 input:focus, select:focus { border-color: #995286; box-shadow: 0 0 5px rgba(255, 69, 212, 0.3); }
 
-/* Botones */
+/* Botones 
 button {
     padding: 12px 20px;
     border: none;
@@ -140,7 +140,140 @@ button {
 .btn-secundario { background-color: #b75fa7; color: white; }
 .btn-accion { background-color: #3e512c; color: white; width: 100%; }
 
-/* Tabla moderna */
+/* Tabla moderna 
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
 th { text-align: left; padding: 12px; background: #f8f9fa; color: #7f8c8d; font-size: 12px; text-transform: uppercase; }
-td { padding: 12px; border-bottom: 1px solid #eee; }
+td { padding: 12px; border-bottom: 1px solid #eee; }*/
+
+
+/* Reseteo básico y fuentes */
+/* Reseteo básico y fuente del juego */
+/* Reseteo básico y fuente del juego */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* El fondo pastel ahora cubre TODO el navegador de forma fluida */
+body {
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* La 'pantalla' ahora es una tarjeta central limpia (tipo login normal) */
+.screen {
+    width: 100%;
+    max-width: 400px; /* Ancho típico de un formulario de login */
+    background: rgba(255, 255, 255, 0.65); /* Fondo blanco semitransparente muy estético */
+    backdrop-filter: blur(10px); /* Efecto esmerilado moderno */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px; /* Más espacio interno */
+}
+
+/* Título normal, centrado y prolijo */
+.title-main {
+    font-size: 26px;
+    font-weight: 900;
+    color: #2c2c2c;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Grupo de Inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Inputs de texto normales y prolijos */
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1.5px solid #dcdcdc;
+    border-radius: 50px; /* Bordes bien redondeados */
+    outline: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* Animación sutil cuando hacés clic para escribir */
+.input-field:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 8px rgba(233, 30, 99, 0.2);}
+
+
+/* --- CONTENEDOR DE BOTONES (Para que no ocupen todo el ancho de la pantalla) --- */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 200px; /* Al achicar esto, los botones no se deforman a lo ancho */
+    margin: 0 auto;
+}
+
+/* --- BOTÓN ESTILO JUEGO (MÁS CHICO Y ESTILIZADO) --- */
+.btn-primary {
+    /* Degradado rosa/fucsia de la imagen */
+    background: linear-gradient(180deg, #ff63ca 0%, #e61093 100%);
+    
+    /* Texto blanco, más chico y con la tipografía de tu boceto */
+    color: #ffffff;
+    font-family: 'Times New Roman', serif;
+    font-size: 13px; /* Más chico */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Borde blanco fino y bordes redondeados */
+    border: 1.5px solid #ffffff;
+    border-radius: 20px; /* Proporcional al tamaño */
+    
+    /* Sombra 3D más sutil para que no se vea grosera */
+    box-shadow: 0 4px 0px #b0066d, 0 5px 10px rgba(0, 0, 0, 0.25);
+    
+    padding: 8px 16px; /* Relleno reducido para hacerlo más delgado */
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s ease;
+}
+
+/* --- EFECTOS INTERACTIVOS --- */
+.btn-primary:hover {
+    background: linear-gradient(180deg, #ff85d6 0%, #ff1ca7 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 0px #b0066d, 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(3px); /* Se hunde al hacer clic */
+    box-shadow: 0 1px 0px #b0066d, 0 2px 4px rgba(0, 0, 0, 0.2);
+}

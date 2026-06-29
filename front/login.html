@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        <h1>Iniciar Sesión</h1>
+    <div class="screen view-login">
+        <div class="container">
+            
+            <h1 class="title-main">Iniciar Sesión</h1>
 
-        <input
-            type="text"
-            id="user"
-            placeholder="Usuario"
-        >
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="user"
+                    class="input-field"
+                    placeholder="Usuario"
+                >
 
-        <br><br>
+                <input
+                    type="password"
+                    id="contra"
+                    class="input-field"
+                    placeholder="Contraseña"
+                >
+            </div>
 
-        <input
-            type="password"
-            id="contra"
-            placeholder="Contraseña"
-        >
+            <div class="button-group">
+                <button id="botonLogin" class="btn-primary">
+                    Ingresar
+                </button>
 
-        <br><br>
+                <button id="botonPagRegistro" class="btn-primary">
+                    ¿No tenés usuario? ¡Registrate!
+                </button>
+            </div>
 
-        <button id="botonLogin">
-            Ingresar
-        </button>
-
-        <button id="botonPagRegistro">
-            ¿No tenes usuario? ¡Registrate!
-        </button>
-
-
-        <script src="indexF.js"></script>
-        <script src="user.js"></script>
-        <script src="indexA.html"></script>
-        <script src="login.js"></script>
-        <script src="registro.js"></script>
-    
-
-    </body>
-</html>
+        </div>
+    </div>
