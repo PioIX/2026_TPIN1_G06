@@ -127,4 +127,63 @@ app.delete('/peliculas', function(req, res){
 
 } )
 
+app.post("/registro", async function(req, res) { // <-- Agregado 'async'
+    console.log(req.body);
 
+    // Creamos el objeto de respuesta por defecto (falla por defecto)
+    let respuesta = {
+        ok: false,
+        msg: "No se pudo registrar"
+    };
+
+    try {
+        // 1 - Ver si ya existe el usuario (Buscamos solo por el nombre de usuario o mail)
+        let existe = await realizarQuery(`
+            SELECT * FROM Usuarios WHERE user = '${req.body.user}' OR mail = '${req.body.mail}'
+        `);
+
+        // 2 - Si ya existe, se lo digo modificando el objeto respuesta
+        if (existe.length > 0) {
+            respuesta.msg = "El nombre de usuario o el email ya están en uso.";
+            return res.send(respuesta); 
+        }
+
+        // 3 - Si no existe lo registro
+        await realizarQuery(`
+            INSERT INTO Usuarios (id, user, contra, mail, es_admin) VALUES
+            ('${req.body.id}', '${req.body.user}', '${req.body.contra}', '${req.body.mail}', '${req.body.es_admin}');
+        `);
+
+        // Si llegó hasta acá, todo salió bien, modificamos la respuesta a éxito
+        respuesta.ok = true;
+        respuesta.msg = "Usuario registrado con éxito";
+        
+        // 4 - Le devuelvo lo que sea que pasó
+        res.send(respuesta);
+
+    } catch (error) {
+        console.error("Error en base de datos:", error);
+        respuesta.msg = "Error interno al intentar registrar.";
+        res.status(500).send(respuesta);
+    }
+});
+
+
+app.post('/usuarios', async function(req, res) {
+    console.log(req.body);
+    
+    let respuesta = await realizarQuery(`   
+        SELECT * FROM Usuarios WHERE user = "${req.body.user}" and contra = "${req.body.contra}"
+    `); 
+
+    if (respuesta.length > 0) {
+        if (req.body.user === "guadalupita" && req.body.contra === "missHim32") {
+            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin" });
+        } else {
+            // Si es cualquier otro usuario de la base de datos
+            res.send({ message: "ingreso exitoso NORMAL", tipoUsuario: "comun" });
+        }
+    } else {
+        res.send({ message: "usuario no existe registrate" });
+    }
+});

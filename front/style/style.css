@@ -1,0 +1,53 @@
+/* Fondo donde podés poner tu imagen */
+body {
+    margin: 0;
+    height: 100vh;
+
+    /* ESPACIO PARA TU IMAGEN DE FONDO */
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+    /* más juntos */
+}
+
+/* LOGO */
+.logo {
+    width: 500px;
+    /* tamaño del logo */
+    height: auto;
+    margin-bottom: 15px;
+    /* separación con los botones */
+}
+
+/* Botones */
+a {
+    text-decoration: none;
+    background-color: fuchsia;
+    color: white;
+
+    padding: 22px 55px;
+    /* más grandes */
+    font-size: 20px;
+    /* texto más grande */
+
+    border-radius: 12px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+
+    display: inline-block;
+    transition: 0.3s;
+}
+
+/* Efecto hover */
+a:hover {
+    background-color: deeppink;
+    transform: scale(1.08);
+}
