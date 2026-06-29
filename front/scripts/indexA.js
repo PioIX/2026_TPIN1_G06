@@ -96,6 +96,7 @@ try {
     } catch (error) {
     console.log("Error al cargar los datos:", error);
 }} 
+cargarSelect()
 
 
 async function cambiarDato() {
@@ -118,6 +119,7 @@ try {
         console.log(response)
         let result = await response.json()
         console.log(result)
+        cargarSelect()
 } catch (error) {
     console.log("Error de red o conexión:", error);
 }
@@ -186,6 +188,8 @@ try {
     } catch (error) {
     console.log("Error al cargar los datos:", error);
 }} 
+cargarSelectB()
+
 
 async function borrarDatos() {
     let datos = {
@@ -202,7 +206,9 @@ async function borrarDatos() {
     console.log(response)
     let result = await response.json()
     console.log(result)
+    cargarSelectB()
 }
+
 
 const selectorBP = document.getElementById('selector-datos-eliminarP')
 async function cargarSelectBP() {

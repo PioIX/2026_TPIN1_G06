@@ -173,17 +173,18 @@ app.post('/usuarios', async function(req, res) {
     console.log(req.body);
     
     let respuesta = await realizarQuery(`   
-        SELECT * FROM Usuarios WHERE user = "${req.body.user}" and contra = "${req.body.contra}"
+        SELECT * FROM Usuarios WHERE user = "${req.body.user}" AND contra = "${req.body.contra}"
     `); 
+    console.log(respuesta)
 
     if (respuesta.length > 0) {
         if (req.body.user === "guadalupita" && req.body.contra === "missHim32") {
-            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin" });
+            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin", ok: true });
         } else {
             // Si es cualquier otro usuario de la base de datos
-            res.send({ message: "ingreso exitoso NORMAL", tipoUsuario: "comun" });
+            res.send({ message: "ingreso exitoso NORMAL", tipoUsuario: "comun", ok: true });
         }
     } else {
-        res.send({ message: "usuario no existe registrate" });
+        res.send({ message: "usuario no existe registrate", ok: false});
     }
 });
