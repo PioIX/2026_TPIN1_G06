@@ -36,5 +36,6 @@ exports.realizarQuery = async function (queryString)
 	{
 		if(connection && connection.end) connection.end();
 	}
-	return returnObject[0];
+	// Validamos: si returnObject existe, devolvemos las filas [0]. Si no, devolvemos null.
+    return returnObject ? returnObject[0] : null;
 }
