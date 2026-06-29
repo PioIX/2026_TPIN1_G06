@@ -25,7 +25,7 @@ async function tomarDatosL() {
         if (result.tipoUsuario === "admin") {
             ui.changeScreen("indexA.html");   // HTML exclusivo para el admin
         } else {
-            ui.changeScreen("indexj.html");  // HTML para usuarios comunes
+            ui.changeScreen("indexJ.html");  // HTML para usuarios comunes
         }
     } else {
         alert(result.message)
