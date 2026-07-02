@@ -1,133 +1,131 @@
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>APP web</title>
-        <link rel="stylesheet" href="style/indexA.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP web</title>
+    <link rel="stylesheet" href="style/indexA.css">
 
-    </head>
+</head>
 
-    
-    <body>
 
-        <h1 id="BaseDatos">BASE DE DATOS</h1>
+<body>
 
-        <div class="botones-backend">
-            <button onclick="llamadoAlGet()">Backend Emojies</button>
-            <button onclick="llamadoAlGetP()">Backend Películas</button>
-        </div>
+    <h1 id="BaseDatos">BASE DE DATOS</h1>
 
-        <div class="contenedor-principal">
+    <div class="botones-backend">
+        <button onclick="llamadoAlGet()">Backend Emojies</button>
+        <button onclick="llamadoAlGetP()">Backend Películas</button>
+    </div>
 
-            <!-- PELICULAS -->
-            <section class="seccion peliculas">
+    <div class="contenedor-principal">
 
-                <h2>🎬 Películas</h2>
+        <!-- PELICULAS -->
+        <section class="seccion peliculas">
 
-                <div class="cards">
+            <h2>🎬 Películas</h2>
 
-                    <!-- AGREGAR -->
-                    <div class="card">
-                        <h3>➕ Agregar Película</h3>
+            <div class="cards">
 
-                        <input id="ingresoDuracion" placeholder="Duración">
-                        <input id="ingresoFecha" placeholder="Fecha estreno">
-                        <input id="ingresoGenero" placeholder="Género">
-                        <input id="ingresoSaga" placeholder="Saga">
-                        <input id="ingresoAnimado" placeholder="Animado">
-                        <input id="ingresoTitulo" placeholder="Título">
+                <!-- AGREGAR -->
+                <div class="card">
+                    <h3>➕ Agregar Película</h3>
 
-                        <button onclick="tomarDatosP()">Enviar</button>
-                    </div>
+                    <input id="ingresoDuracion" placeholder="Duración">
+                    <input id="ingresoFecha" placeholder="Fecha estreno">
+                    <input id="ingresoGenero" placeholder="Género">
+                    <input id="ingresoSaga" placeholder="Saga">
+                    <input id="ingresoAnimado" placeholder="Animado">
+                    <input id="ingresoTitulo" placeholder="Título">
 
-                    <!-- EDITAR -->
-                    <div class="card">
-                        <h3>✏️ Editar Película</h3>
-
-                        <select id="selector-datosP">
-                            <option value="">Seleccione Dato</option>
-                        </select>
-
-                        <input id="ingresoTituloP" placeholder="Título">
-                        <input id="ingresoDuracionP" placeholder="Duración">
-                        <input id="ingresoFechaP" placeholder="Fecha">
-                        <input id="ingresoGeneroP" placeholder="Género">
-                        <input id="ingresoSagaP" placeholder="Saga">
-                        <input id="ingresoAnimadoP" placeholder="Animado">
-
-                        <button onclick="cambiarDatoP()">Modificar</button>
-                    </div>
-
-                    <!-- ELIMINAR -->
-                    <div class="card">
-                        <h3>🗑️ Eliminar Película</h3>
-
-                        <select id="selector-datos-eliminarP">
-                            <option value="">Seleccione Dato</option>
-                        </select>
-
-                        <button onclick="borrarDatosP()">Eliminar</button>
-                    </div>
-
+                    <button onclick="tomarDatosP()">Enviar</button>
                 </div>
 
-            </section>
+                <!-- EDITAR -->
+                <div class="card">
+                    <h3>✏️ Editar Película</h3>
 
-            <!-- EMOJIES -->
-            <section class="seccion emojies">
+                    <select id="selector-datosP">
+                        <option value="">Seleccione Dato</option>
+                    </select>
 
-                <h2>😍 Emojies</h2>
+                    <input id="ingresoTituloP" placeholder="Título">
+                    <input id="ingresoDuracionP" placeholder="Duración">
+                    <input id="ingresoFechaP" placeholder="Fecha">
+                    <input id="ingresoGeneroP" placeholder="Género">
+                    <input id="ingresoSagaP" placeholder="Saga">
+                    <input id="ingresoAnimadoP" placeholder="Animado">
 
-                <div class="cards">
-
-                    <!-- AGREGAR -->
-                    <div class="card">
-                        <h3>➕ Agregar Emoji</h3>
-
-                        <input id="ingresoNombre" placeholder="Nombre">
-                        <input id="ingresoTipo" placeholder="Emoji">
-
-                        <button onclick="tomarDatos()">Enviar</button>
-                    </div>
-
-                    <!-- EDITAR -->
-                    <div class="card">
-                        <h3>✏️ Editar Emoji</h3>
-
-                        <select id="selector-datos">
-                            <option value="">Seleccione Emojie</option>
-                        </select>
-
-                        <input id="ingresoTipoPUT" placeholder="Emoji">
-                        <input id="ingresoNombrePUT" placeholder="Nombre">
-
-                        <button onclick="cambiarDato()">Modificar</button>
-                    </div>
-
-                    <!-- ELIMINAR -->
-                    <div class="card">
-                        <h3>🗑️ Eliminar Emoji</h3>
-
-                        <select id="selector-datos-eliminar">
-                            <option value="">Seleccione Emojie</option>
-                        </select>
-
-                        <button onclick="borrarDatos()">Eliminar</button>
-                    </div>
-
+                    <button onclick="cambiarDatoP()">Modificar</button>
                 </div>
 
-            </section>
+                <!-- ELIMINAR -->
+                <div class="card">
+                    <h3>🗑️ Eliminar Película</h3>
 
-        </div>
+                    <select id="selector-datos-eliminarP">
+                        <option value="">Seleccione Dato</option>
+                    </select>
 
-        <a href="indexJ.html">GUARDAR E IR AL JUEGO</a>
-        <script src="scripts/dom.js"></script>
-        <script src="scripts/indexA.js"></script>
-    </body>
+                    <button onclick="borrarDatosP()">Eliminar</button>
+                </div>
 
+            </div>
 
+        </section>
+
+        <!-- EMOJIES -->
+        <section class="seccion emojies">
+
+            <h2>😍 Emojies</h2>
+
+            <div class="cards">
+
+                <!-- AGREGAR -->
+                <div class="card">
+                    <h3>➕ Agregar Emoji</h3>
+
+                    <input id="ingresoNombre" placeholder="Nombre">
+                    <input id="ingresoTipo" placeholder="Emoji">
+
+                    <button onclick="tomarDatos()">Enviar</button>
+                </div>
+
+                <!-- EDITAR -->
+                <div class="card">
+                    <h3>✏️ Editar Emoji</h3>
+
+                    <select id="selector-datos">
+                        <option value="">Seleccione Emojie</option>
+                    </select>
+
+                    <input id="ingresoTipoPUT" placeholder="Emoji">
+                    <input id="ingresoNombrePUT" placeholder="Nombre">
+
+                    <button onclick="cambiarDato()">Modificar</button>
+                </div>
+
+                <!-- ELIMINAR -->
+                <div class="card">
+                    <h3>🗑️ Eliminar Emoji</h3>
+
+                    <select id="selector-datos-eliminar">
+                        <option value="">Seleccione Emojie</option>
+                    </select>
+
+                    <button onclick="borrarDatos()">Eliminar</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <a href="indexJ.html">GUARDAR E IR AL JUEGO</a>
+    <script src="scripts/dom.js"></script>
+    <script src="scripts/indexA.js"> </script>
+</body>
 
 </html>
