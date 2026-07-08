@@ -1,5 +1,8 @@
 // TEMPORAL: hasta que esté hecha la selección de película del juego
-let idPeliculaActual = 16; // poné un id que sepas que existe en tu tabla
+let idPeliculaActual = 2; // poné un id que sepas que existe en tu tabla
+
+// Guardamos acá las pistas que ya se mostraron en esta partida
+let pistasUsadas = [];
 
 async function getPeliculaPorId(id) {
     const response = await fetch(`http://localhost:4000/peliculas?id=${id}`);
@@ -18,14 +21,26 @@ botonPistas.addEventListener('click', async function() {
         // 2. Creamos una lista con las pistas posibles que están en la tabla
         let tiposDePistas = ['duracion', 'fecha_estreno', 'genero', 'es_saga', 'es_animado'];
 
-        // 3. Elegimos una posición al azar de esa lista
-        let indiceRandom = Math.floor(Math.random() * tiposDePistas.length);
-        let pistaElegida = tiposDePistas[indiceRandom];
+        // 3. Filtramos, dejando solo las que NO se usaron todavía
+        let pistasDisponibles = tiposDePistas.filter(pista => !pistasUsadas.includes(pista));
 
-        // 4. Obtenemos el valor real de la película usando la pista elegida
+        // 4. Si ya no quedan pistas disponibles, avisamos y cortamos acá
+        if (pistasDisponibles.length === 0) {
+            document.getElementById('texto-pista').innerText = "¡Ya no quedan más pistas!";
+            return;
+        }
+
+        // 5. Elegimos una posición al azar, pero SOLO entre las disponibles
+        let indiceRandom = Math.floor(Math.random() * pistasDisponibles.length);
+        let pistaElegida = pistasDisponibles[indiceRandom];
+
+        // 6. La marcamos como usada para que no vuelva a salir
+        pistasUsadas.push(pistaElegida);
+
+        // 7. Obtenemos el valor real de la película usando la pista elegida
         let valorPista = pelicula[pistaElegida];
 
-        // 5. Formateamos el texto según qué pista salió
+        // 8. Formateamos el texto según qué pista salió
         let textoFinal = "";
 
         if (pistaElegida === 'es_saga') {
@@ -40,7 +55,7 @@ botonPistas.addEventListener('click', async function() {
             textoFinal = `Pista: El género es ${valorPista}.`;
         }
 
-        // 6. Lo mostramos en la pantalla
+        // 9. Lo mostramos en la pantalla
         document.getElementById('texto-pista').innerText = textoFinal;
 
     } else {
