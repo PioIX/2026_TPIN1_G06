@@ -8,7 +8,6 @@ async function postLogin(datos) {
     });
     return await response.json();
 }
-
 async function tomarDatosL() {
     let datos = {
         user: ingresoUser(),
@@ -22,6 +21,8 @@ async function tomarDatosL() {
     }
     // Evaluamos la respuesta usando tu nueva función del DOM
     if (result.ok) {
+        localStorage.setItem("user", result.user);
+        localStorage.setItem("dificultad", 1); //1 , 2 o 3
         if (result.tipoUsuario === "admin") {
             ui.changeScreen("indexA.html");   // HTML exclusivo para el admin
         } else {
@@ -30,6 +31,7 @@ async function tomarDatosL() {
     } else {
         alert(result.message)
     }
+    //let user = localStorage.getItem("user")
 }
 
 
