@@ -62,3 +62,4 @@ botonPistas.addEventListener('click', async function() {
         document.getElementById('texto-pista').innerText = "No se encontraron datos.";
     }
 });
+
