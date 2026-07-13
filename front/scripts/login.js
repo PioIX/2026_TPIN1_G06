@@ -14,11 +14,12 @@ async function tomarDatosL() {
         contra: ingresoContra(),
     };
 
-    let result = await postLogin(datos);
     if (ingresoUser() === "" || ingresoContra() === "") {
         alert("Complete todos los campos")
         return;
     }
+
+    let result = await postLogin(datos);
     // Evaluamos la respuesta usando tu nueva función del DOM
     if (result.ok) {
         localStorage.setItem("user", result.user);

@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANKINGGGGGGGGGG</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RANKING</title>
+    </head>
+    <body onload="llenarTabla()">
+        <style> table, th, td{
+        border: 1px solid black;
+        }</style>
+    <table style="width: 100%;">
+    <tr>
+        <th>Usuario</th>
+        <th>Ranking</th>
+        <th>Hora finalizada</th>
+    </tr>
+    <tbody id="tabla-contenido">
+
+    </tbody>
+    </table>
+
+
     <script src="scripts/dom.js"></script>
-</body>
+    <script src="scripts/ranking.js"> </script>
+    </body>
 </html>

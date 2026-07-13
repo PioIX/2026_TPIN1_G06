@@ -24,7 +24,6 @@ async function cargarPreguntas() {
     console.log("PELIS", peliculasPistas)
 
 
-
     do{
         yaSalio = false
         pelicula = result.juegos[getRandomInt(result.juegos.length - 1)]
@@ -96,15 +95,12 @@ async function adivinarP() {
         puntaje++;
         localStorage.setItem("puntaje", puntaje);
         console.log("puntaje: " ,puntaje)
+
         if(puntaje == 15){
             alert("PUNTAJE MAX")
             ui.changeScreen("indexR.html")
         }
-        //1) LLEGA PUNTAJE A 15, LO LLEVAN A PUNTAJE
-        //2) AGREGUENLE UN BOTON PARA SALIR (EL BOTON NO VA ACA)
-        //3) AGREGUEN UNA VARIABLE GLOBAL QUE SEA INTENTOS FALLIDOS. QUE ARRANQUE EN CERO
-        //A MEDIDA QUE ERRA LE SUMAN 1 SI LLEGA A 5 EN INCORRECTO LO SACAN
-        //SI ACIERTA LO PONEN EN CERO OTRA VEZ, ASI SON 5 INTENTOS POR PELICULA
+    
         inputUsuario.value = ""; // Limpiamos el input
         await cargarPreguntas();  // Cargamos la siguiente película
         
@@ -124,6 +120,8 @@ async function adivinarP() {
         }
     }
 }
+
+
 
 // Guardamos acá las pistas que ya se mostraron en esta partida
 
@@ -152,7 +150,7 @@ botonPistas.addEventListener('click', function() {
     } else if (cantPistas == 3) {
         let fecha = pistas.fecha_estreno.split("T")[0];
         console.log(fecha);
-        textoFinal = `Pista: Se estrenó en el año ${fecha}. 📅`;
+        textoFinal = `Pista: Se estrenó el ${fecha}. 📅`;
     } else if (cantPistas == 4) {
         textoFinal = `Pista: El género es ${pistas.genero}. 🎭`;
     }
@@ -168,4 +166,28 @@ botonPistas.addEventListener('click', function() {
     }
 });
 
+async function cargarDatosPartida() {
+    let puntaje = localStorage.getItem("puntaje");
+    let user = localStorage.getItem("user");
+    let datos = {
+        user: user,
+        ranking: puntaje,
+    }
+    console.log("aca datos:",datos)
+    const response = await fetch('http://localhost:4000/partidas',{
+        method:"POST", //GET, POST, PUT o DELETE
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos) //JSON.stringify convierte de objeto a JSON
+    })
 
+    console.log(response)
+    let result = await response.json()
+    console.log(result)
+}
+
+function finalizarJuego() {
+    cargarDatosPartida()
+    ui.changeScreen('indexR.html')
+}
