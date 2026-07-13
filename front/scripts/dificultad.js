@@ -185,9 +185,10 @@ async function cargarDatosPartida() {
     console.log(response)
     let result = await response.json()
     console.log(result)
+    ui.changeScreen('indexR.html')
 }
 
 function finalizarJuego() {
     cargarDatosPartida()
-    ui.changeScreen('indexR.html')
+    
 }

@@ -179,7 +179,7 @@ app.post('/usuarios', async function (req, res) {
 
     if (respuesta.length > 0) {
         if (req.body.user === "guadalupita" && req.body.contra === "missHim32") {
-            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin", ok: true, user: respuesta.user });
+            res.send({ message: "ingreso exitoso ADMINISTRADOR", tipoUsuario: "admin", ok: true, user: respuesta[0].user });
         } else {
             // Si es cualquier otro usuario de la base de datos
             res.send({ message: "ingreso exitoso NORMAL", tipoUsuario: "comun", ok: true, user: respuesta[0].user });
@@ -214,7 +214,8 @@ app.get('/Pelicula', async function (req, res) {
 app.get('/partidas', async function (req, res) {
     try {
         let ranking = await realizarQuery(`SELECT user, ranking, hora_final from Partidas
-INNER JOIN Usuarios ON Usuarios.id = Partidas.id_usuario;`);
+INNER JOIN Usuarios ON Usuarios.id = Partidas.id_usuario
+Order by ranking DESC;`);
 
 
         res.send({status: 1, ranking: ranking})
@@ -230,6 +231,7 @@ app.post('/partidas', async function (req, res) {
     if (id_u.length > 0) {
         existe = await realizarQuery(`
             SELECT * FROM Partidas WHERE id_usuario = ${id_u[0].id} AND ranking = ${req.body.ranking}
+            AND hora_final = NOW();
         `)
 
     }
