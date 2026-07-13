@@ -3,10 +3,7 @@ body {
   margin: 0;
   height: 100vh;
 
-  background-image: url("background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background:linear-gradient(to right,#f7a4cf,#d9d3ff);
 
   display: flex;
   flex-direction: column;
@@ -15,6 +12,32 @@ body {
 
   gap: 8px;
   font-family: Arial, sans-serif;
+}
+
+.decoracion{
+    position:absolute;
+    font-size:42px;
+    opacity:.3;
+}
+
+.de-1{
+    top:18%;
+    left:12%;
+}
+
+.de-2{
+    top:22%;
+    right:12%;
+}
+
+.de-3{
+    bottom:18%;
+    left:10%;
+}
+
+.de-4{
+    bottom:14%;
+    right:12%;
 }
 
 /* Título */
