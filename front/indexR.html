@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RANKING</title>
-    </head>
-    <body onload="llenarTabla()">
-        <style> table, th, td{
-        border: 1px solid black;
-        }</style>
-    <table style="width: 100%;">
-    <tr>
-        <th>Usuario</th>
-        <th>Ranking</th>
-        <th>Hora finalizada</th>
-    </tr>
-    <tbody id="tabla-contenido">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANKING</title>
 
-    </tbody>
+    <link rel="stylesheet" href="style/ranking.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body onload="llenarTabla()">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Ranking</th>
+                <th>Hora finalizada</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabla-contenido">
+        </tbody>
     </table>
 
-
     <script src="scripts/dom.js"></script>
-    <script src="scripts/ranking.js"> </script>
-    </body>
+    <script src="scripts/ranking.js"></script>
+
+</body>
 </html>

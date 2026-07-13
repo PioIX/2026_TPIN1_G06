@@ -191,4 +191,5 @@ async function cargarDatosPartida() {
 function finalizarJuego() {
     cargarDatosPartida()
     
+    
 }
