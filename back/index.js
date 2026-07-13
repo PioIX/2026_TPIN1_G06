@@ -214,11 +214,11 @@ app.get('/Pelicula', async function (req, res) {
 app.get('/partidas', async function (req, res) {
     try {
         let ranking = await realizarQuery(`SELECT user, ranking, hora_final from Partidas
-INNER JOIN Usuarios ON Usuarios.id = Partidas.id_usuario
-Order by ranking DESC;`);
+        INNER JOIN Usuarios ON Usuarios.id = Partidas.id_usuario
+        Order by ranking DESC;`);
 
 
-        res.send({status: 1, ranking: ranking})
+        res.send({ status: 1, ranking: ranking })
     } catch (error) {
         res.send({ status: -1, error: error.message })
     }
