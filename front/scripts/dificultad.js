@@ -16,7 +16,7 @@ async function cargarPreguntas() {
     console.log(result)
     let emojis = []
     let nivel = localStorage.getItem("dificultad"); 
-    console.log("NIvel: " + nivel)
+    console.log("Nivel: " + nivel)
     let yaSalio = false
 
     const response2 = await fetch(`http://localhost:4000/Peliculas`);
@@ -190,6 +190,4 @@ async function cargarDatosPartida() {
 
 function finalizarJuego() {
     cargarDatosPartida()
-    
-    
 }
