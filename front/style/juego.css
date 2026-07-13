@@ -1,0 +1,159 @@
+/* Configuración general para pantalla completa */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita barras de desplazamiento molestas */
+    font-family: 'Fredoka', 'Segoe UI', sans-serif;
+}
+
+/* Fondo degradado súper rosa pastel cubriendo toda la pantalla */
+.pantalla-completa {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb3d9 0%, #ffccd5 50%, #e8dbfc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Emojis decorativos de fondo flotando sueltos */
+.decoracion {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.25;
+    user-select: none;
+}
+.de-1 { top: 15%; left: 10%; }
+.de-2 { top: 20%; right: 12%; }
+.de-3 { bottom: 25%; left: 8%; }
+.de-4 { bottom: 15%; right: 15%; }
+
+/* Tarjeta contenedora del juego, más limpia y estética */
+.juego-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 35px;
+    padding: 35px;
+    width: 90%;
+    max-width: 460px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(255, 0, 128, 0.1);
+    border: 4px solid rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+
+/* Título estilizado como tu logo */
+.titulo-juego {
+    font-size: 2.2rem;
+    color: #0c9488; /* Verde azulado */
+    text-transform: uppercase;
+    margin: 0 0 25px 0;
+    letter-spacing: -1px;
+}
+
+.sub-naranja {
+    display: block;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: #ff7b00; /* Naranja brillante */
+    padding: 4px 15px;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 5px auto 0 auto;
+    box-shadow: 0 4px 0 #cc6200;
+}
+
+/* Pantalla central para resaltar los emojis */
+.pantalla-juego {
+    background: #4a3b4e; /* Tono oscuro berenjena/rosa oscuro para contraste */
+    border-radius: 25px;
+    padding: 25px 15px;
+    margin-bottom: 25px;
+    border: 3px solid #6b5271;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Emojis gigantes sin comas intermitentes */
+.emojis-pantalla {
+    font-size: 4.5rem;
+    margin: 0 0 15px 0;
+    letter-spacing: 5px; /* Espaciado limpio entre emojis */
+    filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.3));
+}
+
+/* Caja de entrada de texto */
+.caja-entrada {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    border: 3px solid #ffccd5;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: inherit;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.caja-entrada:focus {
+    border-color: #ff00ff;
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.4);
+}
+
+/* Botón Principal FUCSIA CHILLÓN (idéntico a tus capturas) */
+.btn-principal {
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 6px 0px #b300b3;
+    transition: all 0.1s ease;
+    font-family: inherit;
+    letter-spacing: 1px;
+}
+
+.btn-principal:hover {
+    background-color: #ff33ff;
+}
+
+.btn-principal:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px #b300b3;
+}
+
+/* Botón de pistas */
+.btn-secundario {
+    background-color: #ff4794; /* Rosa intermedio */
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-secundario:hover {
+    background-color: #ff1475;
+}
+
+/* Texto donde se imprime la pista */
+.texto-pista {
+    color: #ffd6e8;
+    margin-top: 12px;
+    font-size: 1rem;
+    min-height: 22px;
+    font-weight: 300;
+}

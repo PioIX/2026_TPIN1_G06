@@ -191,9 +191,20 @@ app.post('/usuarios', async function(req, res) {
 
 app.get('/EmojiexPelicula', async function (req,res) {
     try {
-        let juegos = await realizarQuery(`SELECT titulo, tipo from Peliculas INNER JOIN
+        let juegos = await realizarQuery(`SELECT * from Peliculas INNER JOIN
         EmojiexPelicula ON Peliculas.id = EmojiexPelicula.id_pelicula
         INNER JOIN Emojies ON Emojies.id = EmojiexPelicula.id_emojie;`);
+        console.log("en el back", juegos[0]);
+        res.send({juegos: juegos, status: 1})
+    } catch (error) {
+        res.send({status: -1, error: error.message})
+    }
+})
+
+app.get('/Pelicula', async function (req,res) {
+    try {
+        let juegos = await realizarQuery(`SELECT * from Peliculas;`);
+        console.log("en el back", juegos[0]);
         res.send({juegos: juegos, status: 1})
     } catch (error) {
         res.send({status: -1, error: error.message})

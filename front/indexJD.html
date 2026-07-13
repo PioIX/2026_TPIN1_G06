@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego ahora si</title>
+    <title>Adivina la Peli - Juego</title>
+    <link rel="stylesheet" href="style/juego.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body onload="cargarPreguntas()">
-    <button id="btn-pistas">Obtener Pista</button>
-    <div id="contenedor-pista"></div>
-    <p id="emojis"></p>
-    <input type="ingresa la pelicula" id="guess">
-    <button onclick="adivinarP()"></button>
 
+    <div class="pantalla-completa">
+        
+        <div class="decoracion de-1">🎬</div>
+        <div class="decoracion de-2">👑</div>
+        <div class="decoracion de-3">👻</div>
+        <div class="decoracion de-4">🍿</div>
+
+        <div class="juego-container">
+            
+            <div class="logo-seccion">
+                <h1 class="titulo-juego">ADIVINA LA PELI<span class="sub-naranja">CON EMOJIS</span></h1>
+            </div>
+
+            <div class="pantalla-juego">
+                <p id="emojis" class="emojis-pantalla">🦁👑</p> 
+                
+                <div class="seccion-pistas">
+                    <button id="btn-pistas" class="btn-secundario">Obtener Pista</button>
+                    <div id="texto-pista" class="texto-pista"></div>
+                </div>
+            </div>
+
+            <div class="formulario-respuesta">
+                <input type="text" id="guess" placeholder="Ingresa la película" class="caja-entrada">
+                <button onclick="adivinarP()" class="btn-principal">ADIVINAR</button>
+            </div>
+
+        </div>
+    </div>
 
     <script src="scripts/dom.js"></script>   
     <script src="scripts/dificultad.js"></script>

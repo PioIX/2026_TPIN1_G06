@@ -1,5 +1,5 @@
 // TEMPORAL: hasta que esté hecha la selección de película del juego
-let idPeliculaActual = 2; // poné un id que sepas que existe en tu tabla
+let idPeliculaActual = id; // poné un id que sepas que existe en tu tabla
 
 // Guardamos acá las pistas que ya se mostraron en esta partida
 let pistasUsadas = [];
